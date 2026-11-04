@@ -1,4 +1,7 @@
 
+
+
+
 "use strict";
 
 // Get elements from the HTML
@@ -13,12 +16,27 @@ const loginButton = document.querySelector(".login-button");
 // Show or hide the password
 togglePassword.addEventListener("click", function () {
     if (passwordInput.type === "password") {
+        // Show the password
         passwordInput.type = "text";
         togglePassword.textContent = "Hide";
     } else {
+        // Hide the password
         passwordInput.type = "password";
         togglePassword.textContent = "Show";
     }
+
+    // Update accessibility attributes
+    togglePassword.setAttribute(
+        "aria-label",
+        passwordInput.type === "password"
+            ? "Show password"
+            : "Hide password"
+    );
+
+    togglePassword.setAttribute(
+        "aria-pressed",
+        passwordInput.type === "text"
+    );
 });
 
 // Display error or success messages
@@ -81,3 +99,4 @@ loginForm.addEventListener("submit", function (event) {
         loginButton.disabled = false;
     }, 2000);
 });
+

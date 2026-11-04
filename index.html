@@ -1,4 +1,10 @@
 
+
+
+   
+                 
+           
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,10 +13,10 @@
 
     <meta
         name="description"
-        content="WeConnect is the community platform for Wecan Academy students and alumni."
+        content="WeConnect connects Wecan Academy students and alumni."
     >
 
-    <title>WeConnect | Member Login</title>
+    <title>WeConnect | Sign In or Sign Up</title>
 
     <link rel="stylesheet" href="styles.css">
     <script src="J's main.js" defer></script>
@@ -18,18 +24,26 @@
 
 <body>
 
+    <!-- Header -->
     <header class="login-header">
         <a href="index.html" aria-label="WeConnect home">
             <h1>WeConnect</h1>
         </a>
+
         <p>Wecan Academy Community</p>
     </header>
 
+    <!-- Main content -->
     <main class="login-container">
 
-        <section class="login-box" aria-labelledby="login-heading">
+        <!-- Sign In Screen -->
+        <section
+            class="login-box"
+            id="signInScreen"
+            aria-labelledby="signInHeading"
+        >
 
-            <h2 id="login-heading">Welcome Back!</h2>
+            <h2 id="signInHeading">Welcome Back!</h2>
 
             <p class="subtitle">
                 Sign in to connect with your community.
@@ -38,81 +52,11 @@
             <form id="loginForm">
 
                 <div class="form-group">
-                    <label for="email">Email
-
-<section class="auth-section" aria-labelledby="auth-title">
-  <div class="auth-card">
-    <h1 id="auth-title">Welcome to WeConnect</h1>
-    <p id="auth-description">Sign in to connect with the Wecan Academy community.</p>
-
-    <!-- Sign In form: shown first -->
-    <form id="sign-in-form">
-      <h2>Sign In</h2>
-
-      <label for="signin-email">Email address</label>
-      <input type="email" id="signin-email" name="email" required>
-
-      <label for="signin-password">Password</label>
-      <input type="password" id="signin-password" name="password" required>
-
-      <button type="submit">Sign In</button>
-
-      <p>
-        Don’t have an account?
-        <button type="button" class="text-button" id="show-sign-up">
-          Sign Up
-        </button>
-      </p>
-    </form>
-
-    <!-- Sign Up form: hidden until selected -->
-    <form id="sign-up-form" hidden>
-      <h2>Create Account</h2>
-
-      <label for="signup-name">Full name</label>
-      <input type="text" id="signup-name" name="name" required>
-
-      <label for="signup-email">Email address</label>
-      <input type="email" id="signup-email" name="email" required>
-
-      <label for="signup-role">I am a</label>
-      <select id="signup-role" name="role" required>
-        <option value="">Choose your category</option>
-        <option value="student">Student</option>
-        <option value="alumni">Alumni</option>
-        <option value="staff">Staff</option>
-      </select>
-
-      <label for="signup-password">Create password</label>
-      <input type="password" id="signup-password" name="password" required>
-
-      <button type="submit">Request Verification</button>
-
-      <p>
-        Already have an account?
-        <button type="button" class="text-button" id="show-sign-in">
-          Sign In
-        </button>
-      </p>
-    </form>
-
-    <!-- Demo verification message -->
-    <div id="verification-message" class="verification-message" role="status" hidden>
-      <h2>Verification Successful!</h2>
-      <p>
-        Demo only: your details have been submitted for membership verification.
-        Real verification must be completed by WeConnect administrators.
-      </p>
-      <button type="button" id="back-to-sign-in">Go to Sign In</button>
-    </div>
-  </div>
-</section>
-
- Address</label>
+                    <label for="loginEmail">Email Address</label>
 
                     <input
                         type="email"
-                        id="email"
+                        id="loginEmail"
                         name="email"
                         placeholder="Enter your email"
                         autocomplete="email"
@@ -121,12 +65,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="password">Password</label>
+                    <label for="loginPassword">Password</label>
 
                     <div class="password-container">
                         <input
                             type="password"
-                            id="password"
+                            id="loginPassword"
                             name="password"
                             placeholder="Enter your password"
                             autocomplete="current-password"
@@ -135,8 +79,8 @@
 
                         <button
                             type="button"
-                            id="togglePassword"
                             class="show-password"
+                            id="toggleLoginPassword"
                             aria-label="Show password"
                             aria-pressed="false"
                         >
@@ -151,6 +95,7 @@
                         <input
                             type="checkbox"
                             name="remember"
+                            id="rememberMe"
                         >
                         Remember me
                     </label>
@@ -162,26 +107,148 @@
                 </div>
 
                 <p
-                    id="message"
+                    id="loginMessage"
                     role="status"
                     aria-live="polite"
                 ></p>
 
                 <button type="submit" class="login-button">
-                    Log In
+                    Sign In
                 </button>
 
             </form>
 
             <p class="register-link">
                 Don't have an account?
-                <a href="register.html">Register here</a>
+                <a href="#signUp" id="showSignUp">
+                    Sign Up
+                </a>
+            </p>
+
+        </section>
+
+        <!-- Sign Up Screen -->
+        <section
+            class="login-box"
+            id="signUpScreen"
+            aria-labelledby="signUpHeading"
+            hidden
+        >
+
+            <h2 id="signUpHeading">Create Your Account</h2>
+
+            <p class="subtitle">
+                Join the Wecan Academy community.
+            </p>
+
+            <form id="registerForm">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        name="fullName"
+                        placeholder="Enter your full name"
+                        autocomplete="name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="registerEmail">Email Address</label>
+
+                    <input
+                        type="email"
+                        id="registerEmail"
+                        name="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="memberType">I am a</label>
+
+                    <select
+                        id="memberType"
+                        name="memberType"
+                        required
+                    >
+                        <option value="">Select your membership</option>
+                        <option value="student">Student</option>
+                        <option value="alumni">Alumni</option>
+                        <option value="staff">Staff</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="registerPassword">Create Password</label>
+
+                    <div class="password-container">
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            name="password"
+                            placeholder="Create a password"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="show-password"
+                            id="toggleRegisterPassword"
+                            aria-label="Show password"
+                            aria-pressed="false"
+                        >
+                            Show
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">
+                        Confirm Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        name="confirmPassword"
+                        placeholder="Confirm your password"
+                        autocomplete="new-password"
+                        required
+                    >
+                </div>
+
+                <p
+                    id="registerMessage"
+                    role="status"
+                    aria-live="polite"
+                ></p>
+
+                <button type="submit" class="login-button">
+                    Sign Up
+                </button>
+
+            </form>
+
+            <p class="register-link">
+                Already have an account?
+                <a href="#signIn" id="showSignIn">
+                    Sign In
+                </a>
             </p>
 
         </section>
 
     </main>
 
+    <!-- Footer -->
     <footer class="login-footer">
         <p>
             &copy; 2026 WeConnect. Wecan Academy Community.

@@ -27,6 +27,25 @@ body {
 
     padding: 20px;
 }
+/* Main page layout */
+.login-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    gap: 15px;
+}
+
+/* WeConnect logo */
+.logo {
+    margin-bottom: 0;
+}
+
+/* Login container */
+.login-container {
+    margin-top: 0;
+}
 
 /* WeConnect header at the top */
 .login-header {

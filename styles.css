@@ -1,32 +1,42 @@
 
-/* General page styling */
-* {
+
+
+
+
+ {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html,
+body {
+    min-height: 100%;
 }
 
 body {
     font-family: Arial, sans-serif;
     background: #f0f4f8;
     color: #333;
+
+    /* Vertical portrait layout */
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+
     padding: 20px;
 }
 
-/* Main container */
-.login-container {
-    width: 100%;
-    max-width: 420px;
-}
-
-/* Header */
+/* WeConnect header at the top */
 .login-header {
     text-align: center;
-    margin-bottom: 25px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.login-header a {
+    text-decoration: none;
 }
 
 .login-header h1 {
@@ -40,9 +50,23 @@ body {
     font-size: 14px;
 }
 
-/* Login box */
+/* Main content in the middle */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+
+    /* Takes available vertical space */
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Login form container */
 .login-box {
     background: white;
+    width: 100%;
     padding: 35px 30px;
     border-radius: 12px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
@@ -167,23 +191,33 @@ body {
     color: #16a34a;
 }
 
-/* Registration */
+/* Registration link */
 .register-link {
     text-align: center;
     font-size: 14px;
     margin-top: 25px;
 }
 
-/* Footer */
-footer {
+/* Footer at the bottom */
+.login-footer {
+    width: 100%;
     text-align: center;
     color: #64748b;
     font-size: 12px;
-    margin-top: 25px;
+    padding: 20px 0 10px;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .login-header {
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+
     .login-box {
         padding: 25px 20px;
     }
